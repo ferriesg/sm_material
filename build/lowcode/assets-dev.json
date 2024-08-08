@@ -16,14 +16,6 @@
       ]
     },
     {
-      "package": "@ant-design/icons",
-      "version": "5.2.6",
-      "urls": [
-        "https://cdn.redhare.cc/@ant-design/icons@5.2.6/dist/index.umd.js"
-      ],
-      "library": "icons"
-    },
-    {
       "package": "antd",
       "version": "4.24.14",
       "urls": [
@@ -33,9 +25,9 @@
       "library": "antd"
     },
     {
-      "package": "@redhare/antd-materials",
-      "version": "1.4.2",
-      "library": "AntdMaterials",
+      "package": "sm-materials",
+      "version": "1.0.0",
+      "library": "SMMaterials",
       "urls": [
         "./render/default/view.js",
         "./render/default/view.css"
@@ -55,10 +47,10 @@
   ],
   "components": [
     {
-      "exportName": "RedhareAntdMaterialsMeta",
+      "exportName": "SmMaterialsMeta",
       "npm": {
-        "package": "@redhare/antd-materials",
-        "version": "1.4.2"
+        "package": "sm-materials",
+        "version": "1.0.0"
       },
       "url": "./meta.js",
       "urls": {

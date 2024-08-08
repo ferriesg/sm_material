@@ -68,7 +68,7 @@
   },
   "componentConfig": {
     "isComponentLibrary": true,
-    "materialSchema": "https://cdn.redhare.cc/@redhare/antd-materials@1.4.2/build/lowcode/assets-prod.json"
+    "materialSchema": "https://unpkg.com/sm-materials@1.0.0/build/lowcode/assets-prod.json"
   },
   "gitHead": "5c82bf5ada8804915ead3c5b89d8f7d3287be45d",
   "exports": {

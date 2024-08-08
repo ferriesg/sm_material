@@ -16,14 +16,6 @@
       ]
     },
     {
-      "package": "@ant-design/icons",
-      "version": "5.2.6",
-      "urls": [
-        "https://cdn.redhare.cc/@ant-design/icons@5.2.6/dist/index.umd.js"
-      ],
-      "library": "icons"
-    },
-    {
       "package": "antd",
       "version": "4.24.14",
       "urls": [
@@ -33,21 +25,21 @@
       "library": "antd"
     },
     {
-      "package": "@redhare/antd-materials",
-      "version": "1.4.2",
-      "library": "AntdMaterials",
+      "package": "sm-materials",
+      "version": "1.0.0",
+      "library": "SMMaterials",
       "urls": [
-        "https://cdn.redhare.cc/@redhare/antd-materials@1.4.2/build/lowcode/render/default/view.js",
-        "https://cdn.redhare.cc/@redhare/antd-materials@1.4.2/build/lowcode/render/default/view.css"
+        "https://unpkg.com/sm-materials@1.0.0/build/lowcode/render/default/view.js",
+        "https://unpkg.com/sm-materials@1.0.0/build/lowcode/render/default/view.css"
       ],
       "editUrls": [
-        "https://cdn.redhare.cc/@redhare/antd-materials@1.4.2/build/lowcode/view.js",
-        "https://cdn.redhare.cc/@redhare/antd-materials@1.4.2/build/lowcode/view.css"
+        "https://unpkg.com/sm-materials@1.0.0/build/lowcode/view.js",
+        "https://unpkg.com/sm-materials@1.0.0/build/lowcode/view.css"
       ],
       "advancedUrls": {
         "default": [
-          "https://cdn.redhare.cc/@redhare/antd-materials@1.4.2/build/lowcode/render/default/view.js",
-          "https://cdn.redhare.cc/@redhare/antd-materials@1.4.2/build/lowcode/render/default/view.css"
+          "https://unpkg.com/sm-materials@1.0.0/build/lowcode/render/default/view.js",
+          "https://unpkg.com/sm-materials@1.0.0/build/lowcode/render/default/view.css"
         ]
       },
       "advancedEditUrls": {}
@@ -55,18 +47,18 @@
   ],
   "components": [
     {
-      "exportName": "RedhareAntdMaterialsMeta",
+      "exportName": "SmMaterialsMeta",
       "npm": {
-        "package": "@redhare/antd-materials",
-        "version": "1.4.2"
+        "package": "sm-materials",
+        "version": "1.0.0"
       },
-      "url": "https://cdn.redhare.cc/@redhare/antd-materials@1.4.2/build/lowcode/meta.js",
+      "url": "https://unpkg.com/sm-materials@1.0.0/build/lowcode/meta.js",
       "urls": {
-        "default": "https://cdn.redhare.cc/@redhare/antd-materials@1.4.2/build/lowcode/meta.js"
+        "default": "https://unpkg.com/sm-materials@1.0.0/build/lowcode/meta.js"
       },
       "advancedUrls": {
         "default": [
-          "https://cdn.redhare.cc/@redhare/antd-materials@1.4.2/build/lowcode/meta.js"
+          "https://unpkg.com/sm-materials@1.0.0/build/lowcode/meta.js"
         ]
       }
     }
