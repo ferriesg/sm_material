@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { isNil } from 'lodash'
 import { GroupNodeTypes } from '../../../lowcode/_setters/tree-setter/TableHeaderGroupsSetter'
 import { ColumnType, ColumnsType } from 'antd/lib/table'
+import { ColumnResizer } from './column-resizer'
 
 export interface ICustomColumnType<T> extends ColumnType<T> {
   filterType: 'off' | 'default' | 'custom'
@@ -17,6 +18,7 @@ export interface ICustomTableProps<T> extends TableProps<T> {
   onColumnsSort?: (columns: ColumnsType<any>[]) => void
   id?: string
   recordColumnsOrder?: boolean
+  onColumnsResize?: (columnWidths: Record<string, number>) => void
 }
 
 export const getTableColumnOrderStorageId = (id: string) => `${id}_columns_order`
@@ -49,6 +51,7 @@ const useTableColumns = (
 ): ColumnsType<any> => {
   const { headerGroups, columns: columnProps, columnsDraggable, id } = props
   const data = React.useMemo(() => props?.dataSource || [], [props])
+  const [columnWidthMap, setColumnWidthMap] = useState<Record<string, number>>({})
 
   const sortedColumns = React.useMemo(() => {
     let columns = columnProps
@@ -224,7 +227,32 @@ const useTableColumns = (
       .concat(groups)
   }, [headerGroups, columnList, mapOnCellForColumnFn])
 
-  return columns as any
+  const resizableColumns = React.useMemo(
+    () =>
+      columns.map((column) => ({
+        ...column,
+        width: columnWidthMap[column.dataIndex as string]
+          ? `${columnWidthMap[column.dataIndex as string]}px`
+          : column.width,
+        title: column.dataIndex ? (
+          <>
+            {column.title}
+            <ColumnResizer
+              onResize={(width) => {
+                const widthMap = { ...columnWidthMap, [column.dataIndex as string]: width }
+                props.onColumnsResize?.(widthMap)
+                setColumnWidthMap(widthMap)
+              }}
+            />
+          </>
+        ) : (
+          column.title
+        ),
+      })),
+    [columns, columnWidthMap],
+  )
+
+  return resizableColumns as any
 }
 
 export default useTableColumns

@@ -777,6 +777,9 @@ const props: FieldConfig[] = [
                 componentName: 'NumberSetter',
               },
               {
+                componentName: 'StringSetter',
+              },
+              {
                 componentName: 'VariableSetter',
               },
             ],

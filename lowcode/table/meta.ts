@@ -66,7 +66,12 @@ const TableDescription: IPublicTypeComponentDescription = {
         {
           name: 'onColumnsSort',
           description:
-            "onColumnsSort(columns){\n// 表格列拖拽排序事件\nconsole.log('columns', columns);}",
+            "onColumnsSort(columnsOrder){\n// 表格列拖拽排序事件\nconsole.log('columnsOrder', columnsOrder);}",
+        },
+        {
+          name: 'onColumnsResize',
+          description:
+            "onColumnsResize(columnsWidth){\n// 表格列拖拽宽度事件\nconsole.log('columnsWidth', columnsWidth);}",
         },
         {
           name: 'rowSelection.onChange',
