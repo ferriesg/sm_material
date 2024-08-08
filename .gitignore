@@ -1,0 +1,18 @@
+# Node.js
+node_modules/
+
+# Yarn
+yarn-error.log
+
+# Editor directories and files
+.idea/
+.vscode/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+.tmp/

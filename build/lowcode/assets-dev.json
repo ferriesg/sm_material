@@ -1,0 +1,86 @@
+{
+  "packages": [
+    {
+      "package": "moment",
+      "version": "2.24.0",
+      "urls": [
+        "https://cdn.redhare.cc/moment@2.29.4/min/moment.min.js"
+      ],
+      "library": "moment"
+    },
+    {
+      "package": "lodash",
+      "library": "_",
+      "urls": [
+        "https://cdn.redhare.cc/lodash@4.17.21/lodash.min.js"
+      ]
+    },
+    {
+      "package": "@ant-design/icons",
+      "version": "5.2.6",
+      "urls": [
+        "https://cdn.redhare.cc/@ant-design/icons@5.2.6/dist/index.umd.js"
+      ],
+      "library": "icons"
+    },
+    {
+      "package": "antd",
+      "version": "4.24.14",
+      "urls": [
+        "https://cdn.redhare.cc/antd@4.24.14/dist/antd.min.js",
+        "https://cdn.redhare.cc/antd@4.24.14/dist/antd.min.css"
+      ],
+      "library": "antd"
+    },
+    {
+      "package": "@redhare/antd-materials",
+      "version": "1.4.2",
+      "library": "AntdMaterials",
+      "urls": [
+        "./render/default/view.js",
+        "./render/default/view.css"
+      ],
+      "editUrls": [
+        "./view.js",
+        "./view.css"
+      ],
+      "advancedUrls": {
+        "default": [
+          "./render/default/view.js",
+          "./render/default/view.css"
+        ]
+      },
+      "advancedEditUrls": {}
+    }
+  ],
+  "components": [
+    {
+      "exportName": "RedhareAntdMaterialsMeta",
+      "npm": {
+        "package": "@redhare/antd-materials",
+        "version": "1.4.2"
+      },
+      "url": "./meta.js",
+      "urls": {
+        "default": "./meta.js"
+      },
+      "advancedUrls": {
+        "default": [
+          "./meta.js"
+        ]
+      }
+    }
+  ],
+  "sort": {
+    "groupList": [
+      "精选组件",
+      "原子组件"
+    ],
+    "categoryList": []
+  },
+  "groupList": [
+    "精选组件",
+    "原子组件"
+  ],
+  "ignoreComponents": {}
+}

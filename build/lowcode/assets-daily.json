@@ -1,0 +1,86 @@
+{
+  "packages": [
+    {
+      "package": "moment",
+      "version": "2.24.0",
+      "urls": [
+        "https://cdn.redhare.cc/moment@2.29.4/min/moment.min.js"
+      ],
+      "library": "moment"
+    },
+    {
+      "package": "lodash",
+      "library": "_",
+      "urls": [
+        "https://cdn.redhare.cc/lodash@4.17.21/lodash.min.js"
+      ]
+    },
+    {
+      "package": "@ant-design/icons",
+      "version": "5.2.6",
+      "urls": [
+        "https://cdn.redhare.cc/@ant-design/icons@5.2.6/dist/index.umd.js"
+      ],
+      "library": "icons"
+    },
+    {
+      "package": "antd",
+      "version": "4.24.14",
+      "urls": [
+        "https://cdn.redhare.cc/antd@4.24.14/dist/antd.min.js",
+        "https://cdn.redhare.cc/antd@4.24.14/dist/antd.min.css"
+      ],
+      "library": "antd"
+    },
+    {
+      "package": "@redhare/antd-materials",
+      "version": "1.4.2",
+      "library": "AntdMaterials",
+      "urls": [
+        "https://cdn.redhare.cc/@redhare/antd-materials@1.4.2/build/lowcode/render/default/view.js",
+        "https://cdn.redhare.cc/@redhare/antd-materials@1.4.2/build/lowcode/render/default/view.css"
+      ],
+      "editUrls": [
+        "https://cdn.redhare.cc/@redhare/antd-materials@1.4.2/build/lowcode/view.js",
+        "https://cdn.redhare.cc/@redhare/antd-materials@1.4.2/build/lowcode/view.css"
+      ],
+      "advancedUrls": {
+        "default": [
+          "https://cdn.redhare.cc/@redhare/antd-materials@1.4.2/build/lowcode/render/default/view.js",
+          "https://cdn.redhare.cc/@redhare/antd-materials@1.4.2/build/lowcode/render/default/view.css"
+        ]
+      },
+      "advancedEditUrls": {}
+    }
+  ],
+  "components": [
+    {
+      "exportName": "RedhareAntdMaterialsMeta",
+      "npm": {
+        "package": "@redhare/antd-materials",
+        "version": "1.4.2"
+      },
+      "url": "https://cdn.redhare.cc/@redhare/antd-materials@1.4.2/build/lowcode/meta.js",
+      "urls": {
+        "default": "https://cdn.redhare.cc/@redhare/antd-materials@1.4.2/build/lowcode/meta.js"
+      },
+      "advancedUrls": {
+        "default": [
+          "https://cdn.redhare.cc/@redhare/antd-materials@1.4.2/build/lowcode/meta.js"
+        ]
+      }
+    }
+  ],
+  "sort": {
+    "groupList": [
+      "精选组件",
+      "原子组件"
+    ],
+    "categoryList": []
+  },
+  "groupList": [
+    "精选组件",
+    "原子组件"
+  ],
+  "ignoreComponents": {}
+}
