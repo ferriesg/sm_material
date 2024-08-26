@@ -19,12 +19,14 @@ export const ColumnResizer = (props: IColumnResizerProps) => {
   const currentX = React.useRef(0)
 
   const handleMouseDown = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    e.stopPropagation()
     const { clientX } = e
     startX.current = clientX
 
     const th = findTableHead(e.target as HTMLElement)
 
     const handleMouseMove = (e: MouseEvent) => {
+      e.stopPropagation()
       const { clientX } = e
       currentX.current = clientX
       resizerShadowRef.current.style.left = `${currentX.current - startX.current}px`
@@ -32,6 +34,7 @@ export const ColumnResizer = (props: IColumnResizerProps) => {
 
     const handleMouseUp = (e: MouseEvent) => {
       // 获取resizerRef parent节点的宽度
+      e.stopPropagation()
       const parentWidth = resizerRef.current?.parentElement?.clientWidth || 0
       const diff = currentX.current - startX.current
       const newWidth = parentWidth + diff
@@ -40,7 +43,7 @@ export const ColumnResizer = (props: IColumnResizerProps) => {
       resizerShadowRef.current.style.left = '0px'
       th.removeEventListener('mousemove', handleMouseMove)
       th.removeEventListener('mouseup', handleMouseUp)
-      onResize(newWidth)
+      onResize(newWidth<80?80:newWidth)
       console.log("%c Line:44 🍐 newWidth", "color:#ffdd4d", newWidth);
     }
 
@@ -49,7 +52,9 @@ export const ColumnResizer = (props: IColumnResizerProps) => {
   }
 
   return (
-    <div className="th-col-resize-dragger" onMouseDown={handleMouseDown} ref={resizerRef}>
+    <div className="th-col-resize-dragger" onMouseDown={handleMouseDown} ref={resizerRef} onClick={(e)=>{
+      e.stopPropagation()
+    }}>
       <div ref={resizerShadowRef} className="th-col-resize-dragger-shadow" />
     </div>
   )

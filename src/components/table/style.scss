@@ -3,6 +3,7 @@
 }
 
 .th-col-resize-dragger {
+  user-select: none;
   position: absolute;
   right: 2px;
   top: 0;
