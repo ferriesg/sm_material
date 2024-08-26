@@ -1,6 +1,6 @@
 {
   "name": "sm-materials",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "双马组件库",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -68,7 +68,7 @@
   },
   "componentConfig": {
     "isComponentLibrary": true,
-    "materialSchema": "https://unpkg.com/sm-materials@1.0.0/build/lowcode/assets-prod.json"
+    "materialSchema": "https://unpkg.com/sm-materials@1.0.1/build/lowcode/assets-prod.json"
   },
   "gitHead": "5c82bf5ada8804915ead3c5b89d8f7d3287be45d",
   "exports": {
