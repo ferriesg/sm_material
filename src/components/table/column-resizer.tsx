@@ -22,6 +22,7 @@ export const ColumnResizer = (props: IColumnResizerProps) => {
     e.stopPropagation()
     const { clientX } = e
     startX.current = clientX
+    console.log('startX',clientX)
 
     const th = findTableHead(e.target as HTMLElement)
 
@@ -29,6 +30,7 @@ export const ColumnResizer = (props: IColumnResizerProps) => {
       e.stopPropagation()
       const { clientX } = e
       currentX.current = clientX
+      console.log('currentX',clientX)
       resizerShadowRef.current.style.left = `${currentX.current - startX.current}px`
     }
 
@@ -37,7 +39,10 @@ export const ColumnResizer = (props: IColumnResizerProps) => {
       e.stopPropagation()
       const parentWidth = resizerRef.current?.parentElement?.clientWidth || 0
       const diff = currentX.current - startX.current
+      console.log('diff',diff)
       const newWidth = parentWidth + diff
+      console.log('newWidth',parentWidth,resizerRef.current?.parentElement)
+      console.log('newWidth',newWidth)
       startX.current = 0
       currentX.current = 0
       resizerShadowRef.current.style.left = '0px'
