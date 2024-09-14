@@ -227,28 +227,49 @@ const useTableColumns = (
       .concat(groups)
   }, [headerGroups, columnList, mapOnCellForColumnFn])
 
+  useEffect(() => {
+    const columnWidthObj = {}
+    columns.forEach((item, index) => {
+      columnWidthObj[item.dataIndex] = document.getElementsByClassName('ant-table-cell')[index].clientWidth
+    })
+    setColumnWidthMap(columnWidthObj)
+  }, [])
   const resizableColumns = React.useMemo(
     () =>
-      columns.map((column) => ({
-        ...column,
-        width: columnWidthMap[column.dataIndex as string]
-          ? `${columnWidthMap[column.dataIndex as string]}px`
-          : column.width,
-        title: column.dataIndex ? (
-          <>
-            {column.title}
-            <ColumnResizer
-              onResize={(width) => {
-                const widthMap = { ...columnWidthMap, [column.dataIndex as string]: width }
-                props.onColumnsResize?.(widthMap)
-                setColumnWidthMap(widthMap)
-              }}
-            />
-          </>
-        ) : (
-          column.title
-        ),
-      })),
+      columns.map((column,index) => ({
+          ...column,
+          width: columnWidthMap[column.dataIndex as string]
+            ? `${columnWidthMap[column.dataIndex as string]}px`
+            : column.width,
+          title: column.dataIndex ? (
+            <>
+              {column.title}
+              <ColumnResizer
+                onResize={(width, diff) => {
+                  console.log(index,'test11111')
+                  const values = Object.values(columnWidthMap)
+                  const sum = values.reduce((accmulator, currentValue) => accmulator + currentValue, 0)
+                  let widthMap;
+                  if (sum + diff < window.innerWidth) {
+                    if(index + 1 === columns.length){
+                      const nextdata = columns[columns.length - 2].dataIndex as string
+                      widthMap = { ...columnWidthMap, [column.dataIndex as string]: width, [nextdata]: columnWidthMap[nextdata] - diff }
+                    }else{
+                      const nextdata = columns[columns.length - 1].dataIndex as string
+                      widthMap = { ...columnWidthMap, [column.dataIndex as string]: width, [nextdata]: columnWidthMap[nextdata] - diff }
+                    }
+                  } else {
+                    widthMap = { ...columnWidthMap, [column.dataIndex as string]: width }
+                  }
+                  props.onColumnsResize?.(widthMap)
+                  setColumnWidthMap(widthMap)
+                }}
+              />
+            </>
+          ) : (
+            column.title
+          ),
+        })),
     [columns, columnWidthMap],
   )
 

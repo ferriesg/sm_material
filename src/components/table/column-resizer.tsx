@@ -1,7 +1,7 @@
 import React from 'react'
 
 interface IColumnResizerProps {
-  onResize: (width: number) => void
+  onResize: (width: number,diff:number) => void
 }
 
 const findTableHead = (el: HTMLElement) => {
@@ -48,7 +48,10 @@ export const ColumnResizer = (props: IColumnResizerProps) => {
       resizerShadowRef.current.style.left = '0px'
       th.removeEventListener('mousemove', handleMouseMove)
       th.removeEventListener('mouseup', handleMouseUp)
-      onResize(newWidth<80?80:newWidth)
+      onResize(newWidth<80?80:newWidth,diff)
+      const needChangeElement = resizerRef.current?.parentElement.parentElement.parentElement.parentElement
+      console.log(needChangeElement,'needChangeElement====')
+      needChangeElement.style.width = needChangeElement.clientWidth + diff + 'px'
       console.log("%c Line:44 🍐 newWidth", "color:#ffdd4d", newWidth);
     }
 

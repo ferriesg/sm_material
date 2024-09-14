@@ -17,7 +17,7 @@ export default [
             id: 2,
             name: '王二',
             age: '9',
-            gender: '男',
+            gender: '女',
           },
         ],
         columns: [
