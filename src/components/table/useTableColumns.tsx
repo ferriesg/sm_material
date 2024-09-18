@@ -14,11 +14,13 @@ export interface ICustomTableProps<T> extends TableProps<T> {
   emptyText?: string
   scrollTo?: number
   ellipsisWidth?: number
-  columnsDraggable?: boolean
+  columnsDraggable?: boolean,
+  rowsDraggable?: boolean,
   onColumnsSort?: (columns: ColumnsType<any>[]) => void
   id?: string
   recordColumnsOrder?: boolean
   onColumnsResize?: (columnWidths: Record<string, number>) => void
+  onRowsSort?:(rowsData: Array<any>) => void
 }
 
 export const getTableColumnOrderStorageId = (id: string) => `${id}_columns_order`
@@ -246,7 +248,6 @@ const useTableColumns = (
               {column.title}
               <ColumnResizer
                 onResize={(width, diff) => {
-                  console.log(index,'test11111')
                   const values = Object.values(columnWidthMap)
                   const sum = values.reduce((accmulator, currentValue) => accmulator + currentValue, 0)
                   let widthMap;

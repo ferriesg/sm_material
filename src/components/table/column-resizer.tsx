@@ -22,7 +22,7 @@ export const ColumnResizer = (props: IColumnResizerProps) => {
     e.stopPropagation()
     const { clientX } = e
     startX.current = clientX
-    console.log('startX',clientX)
+    // console.log('startX',clientX)
 
     const th = findTableHead(e.target as HTMLElement)
 
@@ -30,7 +30,7 @@ export const ColumnResizer = (props: IColumnResizerProps) => {
       e.stopPropagation()
       const { clientX } = e
       currentX.current = clientX
-      console.log('currentX',clientX)
+      // console.log('currentX',clientX)
       resizerShadowRef.current.style.left = `${currentX.current - startX.current}px`
     }
 
@@ -39,10 +39,10 @@ export const ColumnResizer = (props: IColumnResizerProps) => {
       e.stopPropagation()
       const parentWidth = resizerRef.current?.parentElement?.clientWidth || 0
       const diff = currentX.current - startX.current
-      console.log('diff',diff)
+      // console.log('diff',diff)
       const newWidth = parentWidth + diff
-      console.log('newWidth',parentWidth,resizerRef.current?.parentElement)
-      console.log('newWidth',newWidth)
+      // console.log('newWidth',parentWidth,resizerRef.current?.parentElement)
+      // console.log('newWidth',newWidth)
       startX.current = 0
       currentX.current = 0
       resizerShadowRef.current.style.left = '0px'
@@ -50,9 +50,9 @@ export const ColumnResizer = (props: IColumnResizerProps) => {
       th.removeEventListener('mouseup', handleMouseUp)
       onResize(newWidth<80?80:newWidth,diff)
       const needChangeElement = resizerRef.current?.parentElement.parentElement.parentElement.parentElement
-      console.log(needChangeElement,'needChangeElement====')
+      // console.log(needChangeElement,'needChangeElement====')
       needChangeElement.style.width = needChangeElement.clientWidth + diff + 'px'
-      console.log("%c Line:44 🍐 newWidth", "color:#ffdd4d", newWidth);
+      // console.log("%c Line:44 🍐 newWidth", "color:#ffdd4d", newWidth);
     }
 
     th.addEventListener('mousemove', handleMouseMove)

@@ -79,6 +79,11 @@ const TableDescription: IPublicTypeComponentDescription = {
             "onRowSelectionChange(selectedRowKeys,selectedRows,${extParams}){\n// 选中项发生变化时的回调\nconsole.log('onRowSelectionChange', selectedRowKeys, selectedRows);}",
         },
         {
+          name:'onRowsSort',
+          description:
+            "onRowsResize(columnsWidth){\n// 表格行排序事件\nconsole.log('rowsOrder', rowsOrder);}",
+        },
+        {
           name: 'expandable.onExpand',
           description:
             "onExpandableExpand(expanded,record){\n// 点击展开图标时触发\nconsole.log('onRowSelectionChange', expanded, record);}",

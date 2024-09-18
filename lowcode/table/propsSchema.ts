@@ -354,6 +354,18 @@ const props: FieldConfig[] = [
         },
       },
       {
+        name: 'rowsDraggable',
+        title: {
+          label: '行拖拽排序',
+          tip: '设置了数据字段（dataIndex），且非固定列（fixed未配置）的列可以进行拖拽排序',
+        },
+        setter: {
+          componentName: 'BoolSetter',
+          isRequired: true,
+          initialValue: '',
+        },
+      },
+      {
         name: 'id',
         title: {
           label: '表格ID',
