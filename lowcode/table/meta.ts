@@ -81,7 +81,7 @@ const TableDescription: IPublicTypeComponentDescription = {
         {
           name:'onRowsSort',
           description:
-            "onRowsResize(columnsWidth){\n// 表格行排序事件\nconsole.log('rowsOrder', rowsOrder);}",
+            "onRowsSort(rowsData){\n// 表格行排序事件\nconsole.log('rowsOrder', rowsOrder);}",
         },
         {
           name: 'expandable.onExpand',

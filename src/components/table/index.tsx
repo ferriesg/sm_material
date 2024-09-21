@@ -60,9 +60,13 @@ const SMTable = (props: ICustomTableProps<any>) => {
     props.id,
     props.recordColumnsOrder
   );
+  const dataRef = useRef(newProps.dataSource);
+  useEffect(() => {
+    dataRef.current = newProps.dataSource;
+  }, [newProps.dataSource]);
   let columns = useTableColumns(newProps, columnsOrder);
   columns = setEllipsisColumns(columns);
-  
+
   const {
     scrollTo,
     ellipsisWidth,
@@ -73,15 +77,23 @@ const SMTable = (props: ICustomTableProps<any>) => {
     recordColumnsOrder,
     ...restProps
   } = newProps;
-  if(rowsDraggable) columns = [{
-    title: "",
-    dataIndex: "icon",
-    key: "icon",
-    width:'10px',
-    className: "row-draggable", // 让该列可拖动
-    render: () => 
-    <span className="drag-handle" style={{cursor:'pointer'}}><HolderOutlined/></span>, // 图标展示
-  },...columns]
+
+  if (rowsDraggable)
+    columns = [
+      {
+        title: "",
+        dataIndex: "icon",
+        key: "icon",
+        width: "10px",
+        className: "row-draggable", // 让该列可拖动
+        render: () => (
+          <span className="drag-handle" style={{ cursor: "pointer" }}>
+            <HolderOutlined />
+          </span>
+        ), // 图标展示
+      },
+      ...columns,
+    ];
   const locale = useTableLocale(emptyText);
   const tableRef = useRef(null);
 
@@ -90,21 +102,23 @@ const SMTable = (props: ICustomTableProps<any>) => {
   }, []);
 
   useEffect(() => {
-    if(!rowsDraggable) return;
-    const tableBody = document.querySelector(".ant-table-tbody");
+    if (!rowsDraggable) return;
+    const tableBody = document
+      .querySelector(`#${id}`)
+      .querySelector(".ant-table-tbody");
     if (tableBody) {
       Sortable.create(tableBody, {
-        handle: ".drag-handle",
+        handle: ".row-draggable",
         animation: 150,
         onEnd: (event) => {
-          const newData = [...newProps.dataSource];
+          const newData = [...dataRef.current];
           const [movedItem] = newData.splice(event.oldIndex - 1, 1);
           newData.splice(event.newIndex - 1, 0, movedItem);
-          props.onRowsSort(newData)
+          props.onRowsSort(newData);
         },
       });
     }
-  }, [newProps.dataSource,rowsDraggable]);
+  }, [rowsDraggable]);
 
   useEffect(() => {
     let sorterHandler: { destroy: () => void } | undefined = undefined;
